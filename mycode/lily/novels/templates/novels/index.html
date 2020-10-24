@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!--{% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">-->
+    <title></title>
+</head>
+
+<body>
+    <h1>百合の花束</h1>
+    <h2>〜百合小説横断検索サイト〜</h2>
+    <br>
+    <div class="order">
+        <div class="favorite_order"><a href="#">いいね順</a></div>
+        <div class="date_order"><a href="#">投稿日順</a></div>
+    </div>
+    <br>
+
+    <br>
+
+    <ul>
+        {% for s in latest_story_list %}
+        <li>
+            <a href={{ s.URL }} target="_blank">
+                <h3>{{ s.title }}</h3>
+            </a>
+            <p><span class="star">★</span>{{ s.favorite }}</p>
+            <div>
+                <p>作者：{{ s.author }}　最終更新日：{{ s.year }}年{{ s.month }}月{{ s.day }}日</p>
+                <p>{{ s.abstract }}</p>
+
+                <p></p>
+
+            </div>
+        </li>
+        <br>
+        {% endfor %} </ul>
+</body>
+
+</html>
